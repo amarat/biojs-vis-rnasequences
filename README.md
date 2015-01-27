@@ -10,7 +10,7 @@ Install the module with: `npm install biojs-vis-rnasequences`
 
 
 ## Documentation
-For checking RNA visualisation of specific sequence you just need:
+For checking visualisation of specific RNA sequence you just need to do following steps:
 
 * download the DataSet full SOFT file from http://www.ncbi.nlm.nih.gov web page
 * in component select "Choose file"

@@ -1,7 +1,7 @@
 {
   "name": "biojs-vis-rnasequences",
   "description": "Pretty visualization for RNA sequences",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "homepage": "https://github.com/amarat/biojs-vis-rnasequences",
   "contributors": [
     {

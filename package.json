@@ -2,7 +2,7 @@
   "name": "biojs-vis-rnasequences",
   "description": "Pretty visualization for RNA sequences",
   "version": "0.1.2",
-  "homepage": "https://github.com/dianapapyan/biojs-vis-rnasequences",
+  "homepage": "https://github.com/amarat/biojs-vis-rnasequences",
   "contributors": [
     {
       "name": "Diana Papyan",
@@ -32,15 +32,15 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/dianapapyan/biojs-vis-rnasequences.git"
+    "url": "git://github.com/amarat/biojs-vis-rnasequences.git"
   },
   "bugs": {
-    "url": "https://github.com/dianapapyan/biojs-vis-rnasequences/issues"
+    "url": "https://github.com/amarat/biojs-vis-rnasequences/issues"
   },
   "licenses": [
     {
       "type": "Apache 2",
-      "url": "https://github.com/dianapapyan/biojs-vis-rnasequences/blob/master/LICENSE"
+      "url": "https://github.com/amarat/biojs-vis-rnasequences/blob/master/LICENSE"
     }
   ],
   "main": "lib/index.js",

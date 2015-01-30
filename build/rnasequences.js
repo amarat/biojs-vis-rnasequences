@@ -9216,23 +9216,31 @@ $ = jQuery = require("jquery");
 *     indicated number of milliseconds between calls before
 *     calling the original function.
 */
-Function.prototype.throttle = function (milliseconds) {
-    var baseFunction = this,
-        lastEventTimestamp = null,
-        limit = milliseconds;
 
-    return function () {
-        var self = this,
-            args = arguments,
-            now = Date.now();
-
-        if (!lastEventTimestamp || now - lastEventTimestamp >= limit) {
-            lastEventTimestamp = now;
-            baseFunction.apply(self, args);
-        }
+var throttle = function (func, wait) {
+    var context, args, timeout, result;
+    var previous = 0;
+    var later = function() {
+      previous = new Date();
+      timeout = null;
+      result = func.apply(context, args);
+    };
+    return function() {
+      var now = new Date();
+      var remaining = wait - (now - previous);
+      context = this;
+      args = arguments;
+      if (remaining <= 0) {
+        clearTimeout(timeout);
+        timeout = null;
+        previous = now;
+        result = func.apply(context, args);
+      } else if (!timeout) {
+        timeout = setTimeout(later, remaining);
+      }
+      return result;
     };
 };
-
 
 var RNAviewer = function(path) {
 	
@@ -9538,7 +9546,7 @@ var RNAviewer = function(path) {
   	.mousedown(function(e) {
   		mouseDownTrue = true;
   	})
-  	.mousemove(function(e) {
+  	.mousemove(throttle(function(e) {
   		var $container = $(this);
   		if (!mouseDownTrue || $container.attr('id') === 'textContainer'){
   			return;
@@ -9581,7 +9589,7 @@ var RNAviewer = function(path) {
   			drawHeatmap(fileData, '','secondZoomedHeatmap', secondZoomStartRow, secondZoomLastRow);
   			drawText(fileData, 'textCanvas', secondZoomStartRow, secondZoomLastRow);
 
-  	}.throttle(50))
+  	}, 50))
   	.click(function(e){
   		var $container = $(this);
   		if ($container.attr('id') !== 'textContainer'){
